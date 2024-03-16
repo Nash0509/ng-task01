@@ -77,8 +77,8 @@
   </div>
   
   
-  <div class="overflow-y-auto">
-        <table class="mx-auto w-[90vw]">
+  <div class="overflow-y-auto min-h-[40vh] border">
+        <table class="mx-auto w-[90vw] min-h-[40vh]">
           <thead class="*:p-3 rounded bg-slate-400">
               <th>Sr No</th>
               <th>WorkflowNo#</th>
@@ -92,23 +92,26 @@
               <th>End Date</th>
           </thead>
           <tbody>
-              <tr *ngFor="let item of displayArray" class="even:bg-slate-200 *:p-3 *:text-center">
-                   <td>{{item.SrNo}}</td>
-                   <td>{{item.Workflow}}</td>
-                   <td>{{item.RefId}}</td>
-                   <td>{{item.Type}}</td>
-                   <td class="w-[30vw]">{{item.Description}}</td>
-                   <td>{{item.Initiator}}</td>
-                   <td>{{item.PendingWith}}</td>
-                   <td>{{item.Status}}</td>
-                   <td>{{item.startDate}}</td>
-                   <td>{{item.endDate}}</td>
-              </tr>
-          </tbody>
+            <tr *ngFor="let item of displayArray2" class="even:bg-slate-200 *:p-3 *:text-center">
+                <td>{{item.SrNo}}</td>
+                <td>{{item.Workflow}}</td>
+                <td>{{item.RefId}}</td>
+                <td>{{item.Type}}</td>
+                <td class="w-[30vw]">{{item.Description}}</td>
+                <td>{{item.Initiator}}</td>
+                <td>{{item.PendingWith}}</td>
+                <td>{{item.Status}}</td>
+                <td>{{item.startDate}}</td>
+                <td>{{item.endDate}}</td>
+            </tr>
+            <tr *ngIf="displayArray2.length === 0">
+                <td colspan="10" class="text-center">{{message}}</td>
+            </tr>
+        </tbody>
         </table>
         <div class="p-4 w-[80vw] grid grid-cols-2 relative m-auto">
-          <p class="text-xl opacity-55">Showing 1-6 of the X entries</p>
-          <p class="right-2 absolute mt-4"><span class="mx-3 font-bold hover:cursor-pointer bg-blue-700 hover:bg-slate-500 text-white p-2" title="go back" (click)="handleBack()">+</span>Move<span class="mx-3 font-bold hover:cursor-pointer bg-blue-700 hover:bg-slate-500 text-white p-2" title="go forward" (click)="handleForward()">-</span></p>
+          <p class="text-xl opacity-55">Showing {{displayArray.length == 0 ? 0 : showingInitial+1}}-{{showingLast}} of {{displayArray.length}} entries</p>
+          <p class="right-2 absolute mt-4"><span class="mx-3 font-bold hover:cursor-pointer bg-blue-700 hover:bg-slate-500 text-white p-2" title="go back" (click)="handleBack()">-</span>Move<span class="mx-3 font-bold hover:cursor-pointer bg-blue-700 hover:bg-slate-500 text-white p-2" title="go forward" (click)="handleForward()">+</span></p>
        </div>
   </div>
 </div>

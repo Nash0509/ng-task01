@@ -106,6 +106,17 @@ displayArray : Array<any> = [
        
 ]
 
+displayArray2 : Array<any> = [
+
+
+
+];
+
+showingInitial : number = 0;
+showingLast : number = 0 ;
+isZero : boolean = this.displayArray2.length === 0;
+message : string = "The search results will appear here.";
+
 
 
 selectedValue: string = '';
@@ -212,20 +223,48 @@ handleSearch() {
           this.displayArray.push(item);
          }
 
+
      })
+
+     this.showingInitial = 0;
+  this.showingLast = Math.min(6, this.displayArray.length);
+
+  // Update displayArray2
+  this.displayArray2 = this.displayArray.slice(this.showingInitial, this.showingLast);
+
+  if(this.displayArray2.length === 0) {
+    this.message = "No such workflow found...🙄"
+  }
+
+  setTimeout(() => {
+    this.message = "The search results will appear here.";
+  }, 3000);
 
 }
 
 handleBack() {
 
+        if(this.displayArray.length <=6) {
+          return ;
+        }
 
+       if(this.showingInitial != 0) {
+        this.showingLast = this.showingInitial;
+        this.showingInitial -= 6
+        this.displayArray2 = this.displayArray.slice(this.showingInitial, this.showingLast);
+       }
 
 }
 
 handleForward() {
+  const nextStartIndex = this.showingLast;
+  const nextEndIndex = Math.min(this.showingLast + 6, this.displayArray.length);
 
-
-
+  if (nextStartIndex < this.displayArray.length) {
+    this.showingInitial = nextStartIndex;
+    this.showingLast = nextEndIndex;
+    this.displayArray2 = this.displayArray.slice(this.showingInitial, this.showingLast);
+  }
 }
 
 dateFormatChange() {
