@@ -1,0 +1,39 @@
+<h2 mat-dialog-title class="text-center text-3xl mb-3">Add Workflow</h2>
+<mat-dialog-content>
+ <div class="grid grid-cols-2 gap-2">
+    <mat-form-field>
+        <mat-label>Type*</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>refTable*</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Initiator*</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description*</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>pendingWith*</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>refId*</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+      </mat-form-field>
+      <mat-form-field class="col-span-2">
+        <mat-label>remarks*</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+      </mat-form-field>
+ </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="m-auto gap-3 grid grid-cols-2 w-full mb-4">
+    <button (click)="onNoClick()" class="shadow-xl border p-3 hover:bg-slate-200" title="cancel">Cancel</button>
+    <button [mat-dialog-close]="data.animal" cdkFocusInitial class="bg-blue-800 text-white rounded shadow-xl hover:bg-blue-600 p-3" title="Add" (click)="addWorlflow()">Add</button>
+  </div>
+</mat-dialog-actions>

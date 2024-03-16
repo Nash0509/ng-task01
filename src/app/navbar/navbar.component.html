@@ -1,0 +1,54 @@
+<style>
+    ul {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    ul li {
+        list-style-type: none;
+        align-items: center;
+        padding: 0.5rem;
+        border-radius: 5px;
+    }
+
+    ul li:hover {
+        background-color:black ;
+        color: white;
+        cursor: pointer;
+    }
+    
+    #nav-1 {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+    }
+
+    #nav-2 {
+        position: relative;
+        right: 3;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover {
+        color: white;
+    }
+
+    
+</style>
+
+<div id="nav-1" class="shadow-xl grid grid-cols-2">
+    <div class="w-[50vw] pl-7"><h1 class="font-extrabold text-4xl italic">nexgen</h1></div>
+    <div id="nav-2" class="w-[50vw]">
+        <ul class="flex justify-center">
+            <li><a routerLink="/" >Home</a></li>
+            <li><a routerLink="/contact">Contact</a></li>
+            <li><a routerLink="/about">About</a></li>
+            <li><a routerLink="/search">Search</a></li>
+        </ul>
+    </div>
+</div>

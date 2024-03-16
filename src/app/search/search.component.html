@@ -1,0 +1,114 @@
+
+<style>
+</style>
+
+<div class="p-4">
+  <div class="flex relative my-3">
+    <h1 class="my-3">The bread crumb will appear here</h1>
+  <button class="bg-blue-900 text-white p-3 rounded shadow-md hover:bg-blue-700 absolute right-1 md:right-10" (click)="openDialog()">Add Workflow</button>
+  </div>
+  
+  <div class="shadow-xl border p-3 mb-7">
+      <h1>Search for the workflow</h1>
+      <form class="example-form gap-3 flex justify-center flex-col">
+          
+        <div class="flex justify-center gap-3">
+          <mat-form-field class="w-[22.5vw]">
+              <mat-label>Type</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                @for (food of foods; track food) {
+                  <mat-option [value]="food.viewValue">{{food.viewValue}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+  
+          <mat-form-field class="w-[22.5vw]">
+            <mat-label>Initiator</mat-label>
+            <input type="search" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                   placeholder="Initiator" [(ngModel)]="init">
+          </mat-form-field>
+          <mat-form-field class="w-[22.5vw]">
+            <mat-label>Description</mat-label>
+            <input type="search" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                   placeholder="Description" [(ngModel)]="des">
+          </mat-form-field>
+          <mat-form-field class="w-[22.5vw]">
+            <mat-label>RefId</mat-label>
+            <input type="search" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                   placeholder="Pending" [(ngModel)]="pen">
+          </mat-form-field>
+  
+        </div>
+  
+        <div>
+          <p> <span class="border border-black p-1 font-semibold hover:cursor-pointer mx-2" title="expand" (click)="handleExpand()">{{ps}}</span>Extended Search</p>
+          <div class="flex justify-center gap-3 mt-2" *ngIf="display" id="extended">
+              <mat-form-field class="w-[30vw]">
+                  <mat-label>Status</mat-label>
+                  <mat-select [(ngModel)]="selectedValue1" name="food">
+                    @for (status of status; track status) {
+                      <mat-option [value]="status">{{status}}</mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="w-[30vw]">
+                  <mat-label>Start Date</mat-label>
+                  <input matInput [matDatepicker]="picker" [formControl]="dateFormControl" [max]="dateFormControl1.value" [(ngModel)]="date1">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>              
+                <mat-form-field class="w-[30vw]">
+                  <mat-label>End Date</mat-label>
+                  <input matInput [matDatepicker]="picker1" [formControl]="dateFormControl1" [min]="dateFormControl.value" [(ngModel)]="date2">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>   
+                
+          </div>
+        <div class="flex justify-center my-2 gap-2 ">
+          <button class="bg-blue-900 text-white p-3 rounded shadow-md hover:bg-blue-700" (click)="handleSearch()">Search</button>
+          <button class="bg-blue-900 text-white p-3 rounded shadow-md hover:bg-blue-700" (click)="handleReset()">Reset</button>
+        </div>
+        </div>
+        </form>
+        
+  </div>
+  
+  
+  <div class="overflow-y-auto">
+        <table class="mx-auto w-[90vw]">
+          <thead class="*:p-3 rounded bg-slate-400">
+              <th>Sr No</th>
+              <th>WorkflowNo#</th>
+              <th>RefId#</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Initiator</th>
+              <th>Pending With</th>
+              <th>Status</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of displayArray" class="even:bg-slate-200 *:p-3 *:text-center">
+                   <td>{{item.SrNo}}</td>
+                   <td>{{item.Workflow}}</td>
+                   <td>{{item.RefId}}</td>
+                   <td>{{item.Type}}</td>
+                   <td class="w-[30vw]">{{item.Description}}</td>
+                   <td>{{item.Initiator}}</td>
+                   <td>{{item.PendingWith}}</td>
+                   <td>{{item.Status}}</td>
+                   <td>{{item.startDate}}</td>
+                   <td>{{item.endDate}}</td>
+              </tr>
+          </tbody>
+        </table>
+        <div class="p-4 w-[80vw] grid grid-cols-2 relative m-auto">
+          <p class="text-xl opacity-55">Showing 1-6 of the X entries</p>
+          <p class="right-2 absolute mt-4"><span class="mx-3 font-bold hover:cursor-pointer bg-blue-700 hover:bg-slate-500 text-white p-2" title="go back" (click)="handleBack()">+</span>Move<span class="mx-3 font-bold hover:cursor-pointer bg-blue-700 hover:bg-slate-500 text-white p-2" title="go forward" (click)="handleForward()">-</span></p>
+       </div>
+  </div>
+</div>
