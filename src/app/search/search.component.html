@@ -12,7 +12,7 @@
       <h1>Search for the workflow</h1>
       <form class="example-form gap-3 flex justify-center flex-col">
           
-        <div class="flex justify-center gap-3">
+        <div class="flex items-center gap-3  flex-col sm:flex-row">
           <mat-form-field class="w-[22.5vw]">
               <mat-label>Type</mat-label>
               <mat-select [(ngModel)]="selectedValue" name="food">
@@ -42,7 +42,7 @@
   
         <div>
           <p> <span class="border border-black p-1 font-semibold hover:cursor-pointer mx-2" title="expand" (click)="handleExpand()">{{ps}}</span>Extended Search</p>
-          <div class="flex justify-center gap-3 mt-2" *ngIf="display" id="extended">
+          <div class="flex justify-center gap-3 mt-2 flex-col sm:flex-row" *ngIf="display" id="extended">
               <mat-form-field class="w-[30vw]">
                   <mat-label>Status</mat-label>
                   <mat-select [(ngModel)]="selectedValue1" name="food">
