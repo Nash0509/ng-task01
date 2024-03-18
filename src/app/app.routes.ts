@@ -3,18 +3,19 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
+import { MapComponent } from './map/map.component';
 
 export const routes: Routes = [
     {
-        path : 'search' , component : HomeComponent
+        path : 'about' , component : HomeComponent
     },
     {
         path : 'contact', component : ContactComponent
     },
     {
-        path : 'about', component : AboutComponent
+        path : '', component : MapComponent
     },
     {
-        path : '', component : SearchComponent
-    }
+        path : 'search', component : SearchComponent
+    },
 ];

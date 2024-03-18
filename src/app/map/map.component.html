@@ -1,0 +1,131 @@
+<div class="grid xl:grid-cols-2 grid-cols-1">
+    
+    <div class="">
+        <div class="shadow-lg h-[40vh] p-4 mt-4 border m-3">
+            <div>
+                <ul class="flex gap-14 border justify-center shadow-xl bg-slate-300 p-1">
+                    <li>SrNo</li>
+                    <li>PO#</li>
+                    <li>POPos</li>
+                    <li>assignQty</li>
+                    <li>SO#</li>
+                    <li>SOPos</li>
+                    <li>Action</li>
+                </ul>
+            </div>
+            <div class="text-center mt-4">
+                <button class="p-3 rounded shadow-lg bg-slate-400" [disabled]="isDisabled" title="I disbaled this">Create Map</button>
+            </div>
+        </div>
+        
+        
+        <div class="grid grid-cols-3">
+            <div class="border-red-700 border-4 col-span-2 overflow-auto">
+               <p>Pold: 19003900 Supplier: 14000001 | Nexgen Industrial Solutions Pvt Ltd</p>
+                  <table class="w-full">
+                    <thead class="bg-slate-300 p-4 rounded w-[90vw]">
+                        <th> </th>
+                        <th>PoPos</th>
+                        <th>MatId</th>
+                        <th class="w-[25%]">MLFB</th>
+                        <th>Uom</th>
+                        <th>QtyBooked</th>
+                        <th>qtyReceived</th>
+                        <th>availForAssign</th>
+                    </thead>
+                    <tbody class="text-center *:p-2">
+                        <td class="border p-1">+</td>
+                        <td>100</td>
+                        <td>22003200</td>
+                        <td>6GK7243-1BX30-0XE0 | Communication processor CP nos 1243-1 for c</td>
+                        <td>nos</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>1</td>
+                    </tbody>
+                  </table>
+                  </div>
+               <div class="flex flex-col items-center m-3 overflow-auto" id="kukur">
+                 <button class="p-3 rounded-full bg-slate-400" [disabled]="isDisabled"><span>-</span> AssignQty</button>
+                 <label for="PoId">PoId: </label><br>
+                 <input type="text" value="poId" class="border-2 w-20">
+                 <label for="poPos">PoPos :</label><br>
+                 <input type="text" value="PoPos" class="border-2 w-20">
+                 <div class="flex mt-2 gap-2">
+                    <div class="flex flex-col">
+                        <label for="AvailQty">AvailQty:</label><br>
+                        <input type="text" value="availQty" class="border-2 w-20">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="AssignQty">AssignQty:</label><br>
+                        <input type="text" value="assignQty" class="border-2 w-20">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="matReq">matReq:</label><br>
+                        <input type="text" value="poId" class="border-2 w-20">
+                    </div>
+                 </div>
+                 <label for="sold" class="mt-2">Sold:</label><br>
+               <input type="text" value="sold" class="border-2 w-20"><br>
+               <label for="SoPos">SoPos:</label><br>
+               <input type="text" name="soPos" value="SoPos" class="border-2 w-20"><br>
+               <button class="p-3 rounded bg-slate-400" [disabled]="isDisabled"><span>-</span>Add Map</button>
+               </div>
+            </div>
+        
+    </div>
+
+    <div class="border-2 p-3 mt-3 shadow-xl h-[50vh]">
+
+        <form class="flex gap-2">
+            <mat-form-field class="example-full-width">
+              <mat-label>Customer Reference</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Customer Name</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Type No</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Open&Partial</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+            </mat-form-field>
+          </form>
+          
+          <p> <span class="border border-black p-1 font-semibold hover:cursor-pointer mx-2" title="expand">+</span>Extended Search</p>
+
+        <div class="flex gap-3 justify-center">
+            <button class="bg-blue-900 text-white p-3 rounded shadow-md hover:bg-blue-700">Search</button>
+            <button class="bg-blue-900 text-white p-3 rounded shadow-md hover:bg-blue-700">Reset</button>
+        </div>
+
+        <div class="flex justify-center mt-3">
+            <p><mat-paginator [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page">
+  </mat-paginator></p>
+        </div>
+
+        <div class="flex justify-center">
+            <ul class="flex justify-center gap-4 bg-slate-200 shadow-lg p-5 w-[45vw]">
+                <li>SNo</li>
+                <li>SO#</li>
+                <li>soPos</li>
+                <li>Customer</li>
+                <li>MaterialCode</li>
+                <li>MLFB</li>
+                <li>Uom</li>
+                <li>CustomerRef</li>
+                <li>matReq</li>
+            </ul>
+        </div>
+          
+        
+    </div>
+
+</div>
